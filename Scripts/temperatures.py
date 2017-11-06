@@ -33,20 +33,21 @@ renderView1.UseGradientBackground = 1
 # ----------------------------------------------------------------
 
 # create a new 'NetCDF Reader'
-lecteurNC = NetCDFReader(FileName=[sys.argv[1]])
-lecteurNC.Dimensions = '(latitude, longitude)'
-lecteurNC.SphericalCoordinates = 0
-lecteurNC.OutputType = 'Image'
-
-# create a new 'Calculator'
-conversionKelvinCelsius = Calculator(Input=lecteurNC)
-conversionKelvinCelsius.ResultArrayName = 'TMPC_2maboveground'
-conversionKelvinCelsius.Function = 'TMP_2maboveground-273.15'
+mesDonneesnc = NetCDFReader(FileName=[sys.argv[1]])
+mesDonneesnc.Dimensions = '(latitude, longitude)'
+mesDonneesnc.SphericalCoordinates = 0
+mesDonneesnc.ReplaceFillValueWithNan = 1
+mesDonneesnc.OutputType = 'Image'
 
 # create a new 'Threshold'
-seuillage = Threshold(Input=conversionKelvinCelsius)
-seuillage.Scalars = ['POINTS', 'TMPC_2maboveground']
-seuillage.ThresholdRange = [-100., 100.0]
+threshold1 = Threshold(Input=mesDonneesnc)
+threshold1.Scalars = ['POINTS', 'TMP_2maboveground']
+threshold1.ThresholdRange = [254.0, 300.0]
+
+# create a new 'Calculator'
+calculator1 = Calculator(Input=threshold1)
+calculator1.ResultArrayName = 'DegreConversion'
+calculator1.Function = 'TMP_2maboveground-273.15'
 
 # ----------------------------------------------------------------
 # setup color maps and opacity mapes used in the visualization
@@ -72,7 +73,7 @@ calculator1Display = Show(calculator1, renderView1)
 
 # ----------------------------------------------------------------
 # finally, restore active source
-SetActiveSource(seuillage)
+SetActiveSource(threshold1)
 # ----------------------------------------------------------------
 
 

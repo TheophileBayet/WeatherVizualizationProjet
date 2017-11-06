@@ -33,20 +33,21 @@ renderView1.UseGradientBackground = 1
 # ----------------------------------------------------------------
 
 # create a new 'NetCDF Reader'
-lecteurNC = NetCDFReader(FileName=[sys.argv[1]])
-lecteurNC.Dimensions = '(latitude, longitude)'
-lecteurNC.SphericalCoordinates = 0
-lecteurNC.OutputType = 'Image'
-
-# create a new 'Calculator'
-conversionKelvinCelsius = Calculator(Input=lecteurNC)
-conversionKelvinCelsius.ResultArrayName = 'TMPC_2maboveground'
-conversionKelvinCelsius.Function = 'TMP_2maboveground-273.15'
+mesDonneesnc = NetCDFReader(FileName=[sys.argv[1]])
+mesDonneesnc.Dimensions = '(latitude, longitude)'
+mesDonneesnc.SphericalCoordinates = 0
+mesDonneesnc.ReplaceFillValueWithNan = 1
+mesDonneesnc.OutputType = 'Image'
 
 # create a new 'Threshold'
-seuillage = Threshold(Input=conversionKelvinCelsius)
-seuillage.Scalars = ['POINTS', 'TMPC_2maboveground']
-seuillage.ThresholdRange = [-100., 100.0]
+threshold1 = Threshold(Input=mesDonneesnc)
+threshold1.Scalars = ['POINTS', 'RH_2maboveground']
+threshold1.ThresholdRange = [11.0, 100.0]
+
+# create a new 'Calculator'
+calculator1 = Calculator(Input=threshold1)
+calculator1.ResultArrayName = 'CelsiusKelvinConversion'
+calculator1.Function = 'TMP_2maboveground-273.15'
 
 # create a new 'Contour'
 contour1 = Contour(Input=calculator1)
@@ -59,13 +60,13 @@ contour1.PointMergeMethod = 'Uniform Binning'
 # note: the Get..() functions create a new object, if needed
 # ----------------------------------------------------------------
 
-# get color transfer function/color map for 'TMP2maboveground'
-tMP2mabovegroundLUT = GetColorTransferFunction('TMP2maboveground')
+# get color transfer function/color map for 'CelsiusKelvinConversion'
+tMP2mabovegroundLUT = GetColorTransferFunction('CelsiusKelvinConversion')
 tMP2mabovegroundLUT.RGBPoints = [254.5133819580078, 0.231373, 0.298039, 0.752941, 275.0299758911133, 0.865003, 0.865003, 0.865003, 295.54656982421875, 0.705882, 0.0156863, 0.14902]
 tMP2mabovegroundLUT.ScalarRangeInitialized = 1.0
 
-# get opacity transfer function/opacity map for 'TMP2maboveground'
-tMP2mabovegroundPWF = GetOpacityTransferFunction('TMP2maboveground')
+# get opacity transfer function/opacity map for 'CelsiusKelvinConversion'
+tMP2mabovegroundPWF = GetOpacityTransferFunction('CelsiusKelvinConversion')
 tMP2mabovegroundPWF.Points = [254.5133819580078, 0.0, 0.5, 0.0, 295.54656982421875, 1.0, 0.5, 0.0]
 tMP2mabovegroundPWF.ScalarRangeInitialized = 1
 
@@ -78,12 +79,12 @@ contour1Display = Show(contour1, renderView1)
 
 # ----------------------------------------------------------------
 # finally, restore active source
-SetActiveSource(seuillage)
+SetActiveSource(threshold1)
 # ----------------------------------------------------------------
 
 
 # SAUVE UNE COPIE D ECRAN DANS UN FICHIER PNG
-WriteImage(sys.argv[1]+".png")
+WriteImage(sys.argv[1]+"_isovaleurs.png")
 
 # REALISE LE ROGNAGE DES PARTIES EXTERNES PAR L UTILITAIRE convert D IMAGEMAGICK, QUI DOIT ETRE INSTALLE SUR L OS
 # os.system('convert -trim -define png:color-type=6' + sys.argv[1]+".png " + sys.argv[1]+".png")
