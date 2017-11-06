@@ -77,7 +77,7 @@ SetActiveSource(seuillage)
 
 
 # SAUVE UNE COPIE D ECRAN DANS UN FICHIER PNG
-WriteImage(sys.argv[1]+".png")
+WriteImage(sys.argv[1]+"_temp.png")
 
 # REALISE LE ROGNAGE DES PARTIES EXTERNES PAR L UTILITAIRE convert D IMAGEMAGICK, QUI DOIT ETRE INSTALLE SUR L OS
 # os.system('convert -trim -define png:color-type=6' + sys.argv[1]+".png " + sys.argv[1]+".png")
