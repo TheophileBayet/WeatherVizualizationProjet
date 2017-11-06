@@ -2,13 +2,11 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Folder>
     <name>Ground Overlays</name>
-    <description>Examples of ground overlays</description>
+    <description>Ground overlay on France</description>
     <GroundOverlay>
-      <name>Large-scale overlay on terrain</name>
-      <description>Overlay shows Mount Etna erupting
-          on July 13th, 2001.</description>
+      <name>France temperatures</name>
       <Icon>
-        <href><![CDATA[../Donnees/MesDonnees.nc.png]]></href>
+        <href><![CDATA[../Donnees/MesDonnees.nc_temperatures.png]]></href>
       </Icon>
       <LatLonBox>
         <north>55.4</north>
@@ -18,5 +16,35 @@
         <rotation>0</rotation>
       </LatLonBox>
     </GroundOverlay>
+
+    <GroundOverlay>
+      <name>France temperatures isovaleurs</name>
+      <Icon>
+        <href><![CDATA[../Donnees/MesDonnees.nc_isovaleurs.png]]></href>
+      </Icon>
+      <LatLonBox>
+        <north>55.4</north>
+        <south>37.5</south>
+        <east>16</east>
+        <west>-12</west>
+        <rotation>0</rotation>
+      </LatLonBox>
+    </GroundOverlay>
+
+    <GroundOverlay>
+      <name>France lignes de courant des vents</name>
+      <Icon>
+        <href><![CDATA[../Donnees/MesDonnees.nc_lignes_courant.png]]></href>
+      </Icon>
+      <LatLonBox>
+        <north>55.4</north>
+        <south>37.5</south>
+        <east>16</east>
+        <west>-12</west>
+        <rotation>0</rotation>
+      </LatLonBox>
+    </GroundOverlay>
+
+
   </Folder>
 </kml>
