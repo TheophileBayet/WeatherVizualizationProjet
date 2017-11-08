@@ -13,5 +13,5 @@ os.system('rm ../Donnees/*.grib2')
 # Traitement sur Paraview
 # permet d'avoir des .png
 os.system('pvpython temperatures.py ../Donnees/MesDonnees.nc')
-#os.system('pvpython isovaleurs.py ../Donnees/MesDonnees.nc')
+os.system('pvpython isovaleurs.py ../Donnees/MesDonnees.nc')
 os.system('pvpython lignes_courant.py ../Donnees/MesDonnees.nc')

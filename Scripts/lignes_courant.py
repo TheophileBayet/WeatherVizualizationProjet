@@ -28,6 +28,7 @@ renderView1.CameraParallelScale = 9.
 renderView1.CameraParallelProjection = 1
 renderView1.Background = [1.0, 1.0, 1.0]
 renderView1.UseGradientBackground = 1
+
 # ----------------------------------------------------------------
 # setup the data processing pipelines
 # ----------------------------------------------------------------
@@ -46,12 +47,6 @@ threshold1.ThresholdRange = [254.0, 300.0]
 
 # create a new 'Calculator'( Conversion en Degres)
 calculator1 = Calculator(Input=threshold1)
-# SAUVE UNE COPIE D ECRAN DANS UN FICHIER PNG
-WriteImage(sys.argv[1]+".png")
-
-# REALISE LE ROGNAGE DES PARTIES EXTERNES PAR L UTILITAIRE convert D IMAGEMAGICK, QUI DOIT ETRE INSTALLE SUR L OS
-# os.system('convert -trim -define png:color-type=6' + sys.argv[1]+".png " + sys.argv[1]+".png")
-
 calculator1.ResultArrayName = 'DegreConversion'
 calculator1.Function = 'TMP_2maboveground-273.15'
 
