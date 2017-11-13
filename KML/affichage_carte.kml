@@ -6,7 +6,7 @@
     <GroundOverlay>
       <name>France temperatures</name>
       <Icon>
-        <href><![CDATA[../Donnees/MesDonnees.nc_temperatures.png]]></href>
+        <href><![CDATA[../Images/MesDonnees.nc_temp.png]]></href>
       </Icon>
       <LatLonBox>
         <north>55.4</north>
@@ -20,7 +20,7 @@
     <GroundOverlay>
       <name>France temperatures isovaleurs</name>
       <Icon>
-        <href><![CDATA[../Donnees/MesDonnees.nc_isovaleurs.png]]></href>
+        <href><![CDATA[../Images/MesDonnees.nc_isovaleurs.png]]></href>
       </Icon>
       <LatLonBox>
         <north>55.4</north>
@@ -34,7 +34,7 @@
     <GroundOverlay>
       <name>France lignes de courant des vents</name>
       <Icon>
-        <href><![CDATA[../Donnees/MesDonnees.nc_lignes_courant.png]]></href>
+        <href><![CDATA[../Images/MesDonnees.nc_courants.png]]></href>
       </Icon>
       <LatLonBox>
         <north>55.4</north>
