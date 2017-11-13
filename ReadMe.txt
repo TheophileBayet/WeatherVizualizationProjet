@@ -26,3 +26,9 @@ Méthode agile :
      - Exportation au format KML 
      - Visualisation sur Google Earth. 
 
+
+DONE. 
+
+TODO : 
+-Améliorer contraste
+-Animations ! 

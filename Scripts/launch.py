@@ -4,7 +4,7 @@ import os
 os.system('echo SCRIPT DE GENERATION AUTOMATIQUE DE DONNES METEOS ')
 os.system('echo ')
 os.system('echo         ===  recuperation des donnees de meteo France ===')
-os.system('python RequeteAromeHD.py 0 SP1')
+os.system('python RequeteAromeHD.py 6 SP1')
 os.system('mv *.grib2 ../Donnees')
 os.system('echo ')
 # Exportation au format nc
