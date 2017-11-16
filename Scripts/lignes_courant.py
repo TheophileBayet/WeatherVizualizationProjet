@@ -1,4 +1,3 @@
-
 import sys
 import os
 
@@ -95,12 +94,13 @@ streamTracer3.SeedType.Point2 = [21.224225179769213, 52.42759754428629, -2.88657
 
 # get color transfer function/color map for 'DegreConversion'
 degreConversionLUT = GetColorTransferFunction('DegreConversion')
-degreConversionLUT.RGBPoints = [-18.636618041992165, 0.231373, 0.298039, 0.752941, 1.879975891113304, 0.865003, 0.865003, 0.865003, 22.396569824218773, 0.705882, 0.0156863, 0.14902]
+degreConversionLUT.RGBPoints = [-17.620947265625, 0.235229, 0.42745, 0.756862, -7.0, 0.258823, 0.439215, 0.760784, 8.0, 0.865003, 0.865003, 0.865003, 20.0, 0.7254901960784313, 0.29411764705882354, 0.29411764705882354, 23.817529296875, 0.7254901960784313, 0.0, 0.0]
+degreConversionLUT.ColorSpace = 'Lab'
 degreConversionLUT.ScalarRangeInitialized = 1.0
 
 # get opacity transfer function/opacity map for 'DegreConversion'
 degreConversionPWF = GetOpacityTransferFunction('DegreConversion')
-degreConversionPWF.Points = [-18.636618041992165, 0.0, 0.5, 0.0, 22.396569824218773, 1.0, 0.5, 0.0]
+degreConversionPWF.Points = [-17.620947265625, 0.0, 0.5, 0.0, 23.817529296875, 1.0, 0.5, 0.0]
 degreConversionPWF.ScalarRangeInitialized = 1
 
 # ----------------------------------------------------------------
