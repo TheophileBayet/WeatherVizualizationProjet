@@ -31,7 +31,7 @@ def KML_ScriptGeneration(Iterations):
             script_kml.write("<east>16</east> \n")
             script_kml.write("<west>-12</west> \n")
             script_kml.write("<rotation>0</rotation> \n")
-            script_kml.write("</LatLonBox> \n")TimeSpan
+            script_kml.write("</LatLonBox> \n")
             script_kml.write("</GroundOverlay> \n")
 
             script_kml.write("<GroundOverlay> \n")
