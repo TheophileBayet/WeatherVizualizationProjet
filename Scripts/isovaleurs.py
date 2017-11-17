@@ -52,7 +52,7 @@ calculator1.Function = 'TMP_2maboveground-273.15'
 # create a new 'Contour'
 contour1 = Contour(Input=calculator1)
 contour1.ContourBy = ['POINTS', 'DegreConversion']
-contour1.Isosurfaces = [-18.6366, -12.774714285714289, -6.912828571428574, -1.050942857142859, 4.810942857142854, 10.672828571428571, 16.534714285714283, 22.3966]
+contour1.Isosurfaces = [-18, -6, 6, 14, 22]
 contour1.PointMergeMethod = 'Uniform Binning'
 
 # ----------------------------------------------------------------
@@ -95,16 +95,31 @@ contour1.PointMergeMethod = 'Uniform Binning'
 # tMP2mabovegroundPWF.Points = [-17.620947265625, 0.0, 0.5, 0.0, 296.9674987792969, 1.0, 0.5, 0.0]
 # tMP2mabovegroundPWF.ScalarRangeInitialized = 1
 
-# ESSAI 3
+# # ESSAI 3
+# # get color transfer function/color map for 'TMP2maboveground'
+# tMP2mabovegroundLUT = GetColorTransferFunction('TMP2maboveground')
+# tMP2mabovegroundLUT.RGBPoints = [255.529052734375, 0.235229, 0.42745, 0.756862, 266.15, 0.258823, 0.439215, 0.760784, 281.15, 0.865003, 0.865003, 0.865003, 293.15, 0.725490196078431, 0.294117647058824, 0.294117647058824, 296.967529296875, 0.725490196078431, 0.0, 0.0]
+# tMP2mabovegroundLUT.ColorSpace = 'Lab'
+# tMP2mabovegroundLUT.ScalarRangeInitialized = 1.0
+#
+# # get opacity transfer function/opacity map for 'TMP2maboveground'
+# tMP2mabovegroundPWF = GetOpacityTransferFunction('TMP2maboveground')
+# tMP2mabovegroundPWF.Points = [-17.620947265625, 0.0, 0.5, 0.0, 296.9674987792969, 1.0, 0.5, 0.0]
+# tMP2mabovegroundPWF.ScalarRangeInitialized = 1
+
+# ESSAI 4
 # get color transfer function/color map for 'TMP2maboveground'
 tMP2mabovegroundLUT = GetColorTransferFunction('TMP2maboveground')
-tMP2mabovegroundLUT.RGBPoints = [255.529052734375, 0.235229, 0.42745, 0.756862, 266.15, 0.258823, 0.439215, 0.760784, 281.15, 0.865003, 0.865003, 0.865003, 293.15, 0.725490196078431, 0.294117647058824, 0.294117647058824, 296.967529296875, 0.725490196078431, 0.0, 0.0]
+tMP2mabovegroundLUT.InterpretValuesAsCategories = 1
+tMP2mabovegroundLUT.RGBPoints = [255.14999389648438, 0.231373, 0.298039, 0.752941, 276.0587615966797, 0.865003, 0.865003, 0.865003, 296.967529296875, 0.705882, 0.0156863, 0.14902]
 tMP2mabovegroundLUT.ColorSpace = 'Lab'
 tMP2mabovegroundLUT.ScalarRangeInitialized = 1.0
+tMP2mabovegroundLUT.Annotations = ['255.15', '255.15', '267.15', '267.15', '279.15', '279.15', '287.15', '287.15', '295.15', '295.15']
+tMP2mabovegroundLUT.IndexedColors = [0.23529411764705882, 0.42745098039215684, 0.7568627450980392, 0.25882352941176473, 0.4392156862745098, 0.7607843137254902, 0.8666666666666667, 0.8666666666666667, 0.9058823529411765, 0.7254901960784313, 0.39215686274509803, 0.39215686274509803, 0.7254901960784313, 0.0, 0.0]
 
 # get opacity transfer function/opacity map for 'TMP2maboveground'
 tMP2mabovegroundPWF = GetOpacityTransferFunction('TMP2maboveground')
-tMP2mabovegroundPWF.Points = [-17.620947265625, 0.0, 0.5, 0.0, 296.9674987792969, 1.0, 0.5, 0.0]
+tMP2mabovegroundPWF.Points = [255.14999389648438, 0.0, 0.5, 0.0, 296.967529296875, 1.0, 0.5, 0.0]
 tMP2mabovegroundPWF.ScalarRangeInitialized = 1
 
 # ----------------------------------------------------------------
