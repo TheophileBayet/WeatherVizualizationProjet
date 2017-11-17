@@ -135,7 +135,7 @@ if __name__ == "__main__":
             # Traitement sur Paraview
             # permet d'avoir des .png
             os.system('echo ')
-            os.system('echo         === Generation de l\'image dans le dossier Images ===')
+            os.system('echo         === Generation de l image dans le dossier Images ===')
             os.system('echo ')
             os.system('echo 1. Generation des temperatures')
             os.system('pvpython temperatures.py ../Donnees/MesDonnees_'+str(NbrPrevisions)+'.nc')
